@@ -1,0 +1,18 @@
+:: StoryData
+{
+    "ifid": "50EDDDC3-9AB8-4B0B-A017-CBBDCB87E83C"
+}
+
+:: StoryTitle
+
+A demo story
+
+:: Start
+
+Your adventure starts
+
+[[Take your first step|first_steps][$walking to true]]
+
+:: first_steps
+
+Todo...

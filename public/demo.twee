@@ -1,0 +1,20 @@
+:: StoryData
+{
+    "ifid": "50EDDDC3-9AB8-4B0B-A017-CBBDCB87E83C"
+}
+
+:: StoryTitle
+
+A demo story
+
+:: Start
+
+Your adventure starts
+
+[[Take your first step|first_steps][$walking to true]]
+
+:: first_steps
+
+Strength: <<set $pcStr to 10>><span id="stats-str"><<print $pcStr>></span> \
+( <<link "[+]">><<set $pcStr++>><<replace "#stats-str">><<print $pcStr>><</replace>><</link>> \
+| <<link "[-]">><<set $pcStr-->><<replace "#stats-str">><<print $pcStr>><</replace>><</link>> )
