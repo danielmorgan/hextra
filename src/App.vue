@@ -1,18 +1,29 @@
 
 <template>
   <div>
-    <h1 class="inline-block m-4 px-4 py-2 leading-none text-2xl tracking-wide font-bold bg-purple-600 rounded-full shadow-lg text-white">
-      {{name}}
-    </h1>
+    <svg viewBox="0 0 200 200" class="border border-black">
+      <Hex transform="translate(100,100)" @click.native="handle" :fill="color" />
+    </svg>
   </div>
 </template>
 
 <script>
+import Hex from './components/Hex.vue'
+
 export default {
+  components: { Hex },
+
   data() {
     return {
       name: 'Hello World!',
+      color: 'green',
     }
+  },
+
+  methods: {
+    handle() {
+      this.color = (this.color === 'green') ? 'blue' : 'green';
+    },
   },
 }
 </script>
