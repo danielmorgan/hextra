@@ -1,9 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   entry: './src/index.js',
@@ -14,6 +14,10 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/
@@ -21,7 +25,13 @@ const config = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'vue-style-loader',
+          {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                  esModule: false,
+              },
+          },
           {
             loader: 'css-loader',
             options: {
@@ -33,15 +43,20 @@ const config = {
       }
     ]
   },
+  resolve: {
+    extensions: [
+      '.js',
+      '.vue'
+    ]
+  },
   plugins: [
-    new HtmlWebpackPlugin({
-      appMountId: 'app',
-      filename: 'index.html'
+    new VueLoaderPlugin(),
+    new CopyPlugin({
+      patterns: [{ from: 'src/index.html' }],
     }),
-    new MiniCssExtractPlugin(),
-    new CleanWebpackPlugin()
-  ],
-  devtool: 'inline-source-map',
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin()
+  ]
 };
 
 module.exports = config;
