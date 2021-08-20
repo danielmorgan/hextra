@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <h1 class="inline-block p-4 text-4xl text-white bg-blue-700 m-4 rounded-lg">
+    <h1 class="inline-block m-4 px-4 py-2 leading-none text-2xl tracking-wide font-bold bg-purple-600 rounded-full shadow-lg text-white">
       {{name}}
     </h1>
   </div>
@@ -16,9 +16,3 @@ export default {
   },
 }
 </script>
-
-<style global>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-</style>
