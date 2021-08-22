@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import map from '@/data/map.json';
+import { mapState, mapGetters } from 'vuex';
 import ClickableHex from '@/components/ClickableHex.vue';
 import Pin from '@/components/Pin.vue';
 
@@ -28,8 +28,6 @@ export default {
 
   data() {
     return {
-      map: map.flat(),
-      playerCoords: { q: 0, r: 0 },
       selectedHex: null,
     };
   },
@@ -55,6 +53,10 @@ export default {
   },
 
   computed: {
+    ...mapState({
+      playerCoords: state => state.player.coords,
+      map: state => state.world.map,
+    }),
     mapUnselected() {
       if (!this.selectedHex) return this.map;
       return this.map.filter(c => c.q !== this.selectedHex?.q || c.r !== this.selectedHex?.r);

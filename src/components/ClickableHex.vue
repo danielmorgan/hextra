@@ -6,7 +6,7 @@
     <Hex
       :coords="coords"
       :stroke="[selected ? 'orange' : 'black']"
-      :stroke-width="[selected ? 4 : 2]"
+      :stroke-width="[selected ? 3 : 2]"
       class="fill-current text-white group-hover:text-purple-700"
       :class="[selected && 'text-yellow-200 group-hover:text-yellow-300']"
     />
