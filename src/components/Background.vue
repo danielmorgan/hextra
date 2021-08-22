@@ -48,5 +48,5 @@ export default {
       return '#eeeef8';
     }
   },
-}
+};
 </script>

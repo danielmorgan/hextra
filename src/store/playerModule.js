@@ -1,5 +1,5 @@
 export default {
-  namespace: true,
+  namespaced: true,
 
   state: () => ({
     coords: { q: 0, r: 1 }

@@ -46,5 +46,5 @@ export default {
       this.windowHeight = window.innerHeight;
     },
   }
-}
+};
 </script>
