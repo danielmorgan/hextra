@@ -34,13 +34,20 @@ export default {
     };
   },
 
+  mounted() {
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') this.deselectHex(); });
+  },
+
   methods: {
     selectHex(coords) {
       if (this.selectedHex?.q === coords.q && this.selectedHex?.r === coords.r) {
-        this.selectedHex = null;
+        this.deselectHex();
         return;
       }
       this.selectedHex = coords;
+    },
+    deselectHex() {
+      this.selectedHex = null;
     },
     isSelected(coords) {
       return this.selectedHex?.q === coords.q && this.selectedHex?.r === coords.r;
