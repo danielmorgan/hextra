@@ -46,7 +46,10 @@ const config = {
     extensions: [
       '.js',
       '.vue'
-    ]
+    ],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    }
   },
   plugins: [
     new VueLoaderPlugin(),
