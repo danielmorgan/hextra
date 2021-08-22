@@ -46,7 +46,7 @@ export default {
       this.move(this.selectedHex);
     },
     handleExplore() {
-      alert("TODO: Twee integration");
+      this.$emit('explore');
     },
   }
 };

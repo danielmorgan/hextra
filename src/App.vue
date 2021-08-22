@@ -5,7 +5,22 @@
       <World/>
     </svg>
     
-    <UI class="absolute inset-0 z-10 pointer-events-none"/>
+    <UI class="absolute inset-0 z-10 pointer-events-none" @explore="showStory = true"/>
+
+    <transition
+      enter-active-class="transition duration-500"
+      leave-active-class="transition duration-500"
+      enter-class="opacity-0 scale-70"
+      enter-to-class="opacity-100 scale-100"
+      leave-class="opacity-0 scale-70"
+      leave-to-class="opacity-0 scale-70"
+    >
+      <Story
+        class="absolute inset-0 z-20"
+        v-if="showStory"
+        @close="showStory = false"
+      />
+    </transition>
   </div>
 </template>
 
@@ -13,14 +28,16 @@
 import World from '@/components/World.vue';
 import Background from './components/Background.vue';
 import UI from './components/UI.vue';
+import Story from './components/Story.vue';
 
 export default {
-  components: { World, Background, UI },
+  components: { World, Background, UI, Story },
 
   data() {
     return {
       windowWidth: window.innerWidth,
       windowHeight: window.innerHeight,
+      showStory: false,
     }
   },
 
