@@ -52,9 +52,9 @@ export default {
     }),
     ...mapGetters('world', [
       'isSelected',
-      'coordsMatch',
       'unselectedMapHexes',
     ]),
+    ...mapGetters(['coordsMatch']),
   }
 };
 </script>

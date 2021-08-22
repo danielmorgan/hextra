@@ -3,7 +3,7 @@
     href="/pin.png"
     width="66"
     height="75"
-    :transform="`translate(${x-33} ${y-70})`"
+    :transform="`translate(${x} ${y})`"
     class="pointer-events-none"
     />
 </template>
@@ -19,12 +19,13 @@ export default {
     },
   },
 
-  data() {
-    const { x, y } = axial_to_pixel(this.coords);
-    return {
-      x,
-      y,
-    };
+  computed: {
+    x() {
+      return axial_to_pixel(this.coords).x - 33;
+    },
+    y() {
+      return axial_to_pixel(this.coords).y - 70;
+    },
   },
 };
 </script>

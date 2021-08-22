@@ -9,14 +9,11 @@ export default {
   }),
 
   getters: {
-    isSelected: (state, getters) => (coords) => {
-      return getters.coordsMatch(state.selectedHex, coords);
+    isSelected: (state, getters, rootState, rootGetters) => (coords) => {
+      return rootGetters.coordsMatch(state.selectedHex, coords);
     },
-    coordsMatch: () => (a, b) => {
-      return a?.q === b?.q && a?.r === b?.r;
-    },
-    unselectedMapHexes(state, getters) {
-      return state.map.filter(hex => !getters.coordsMatch(hex, state.selectedHex));
+    unselectedMapHexes(state, getters, rootState, rootGetters) {
+      return state.map.filter(hex => !rootGetters.coordsMatch(hex, state.selectedHex));
     },
   },
 
@@ -28,4 +25,13 @@ export default {
       state.selectedHex = null;
     },
   },
+
+  actions: {
+    deselectMapHex: {
+      root: true,
+      handler({ commit }) {
+        commit('deselectHex');
+      },
+    },
+  }
 };
