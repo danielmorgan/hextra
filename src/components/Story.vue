@@ -1,9 +1,12 @@
 <template>
-  <div class="bg-white bg-opacity-90 cursor-pointer" @click="$emit('close')">
-    <div class="max-w-3xl mx-auto m-8 p-8 bg-black bg-opacity-75 rounded-lg shadow-2xl flex flex-col justify-between items-center cursor-auto" @click.stop>
+  <div class="bg-white bg-opacity-75 cursor-pointer" @click="$emit('close')">
+    <div class="max-w-3xl mx-auto m-16 p-8 bg-black bg-opacity-75 rounded-lg shadow-2xl flex flex-col justify-between items-center cursor-auto" @click.stop>
       <h1 class="text-3xl font-semibold leading-none text-white text-center">{{ title }}</h1>
 
-      <p class="mt-8 text-white text-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      <div
+        class="mt-8 text-white text-lg"
+        v-text="twee"
+      />
 
       <button
         type="button"
@@ -21,7 +24,14 @@ export default {
   data() {
     return {
       title: 'The Plagued Man',
+      twee: null,
     };
+  },
+
+  mounted() {
+    fetch('/demo.twee')
+      .then(res => res.text())
+      .then(twee => { this.twee = twee; });
   },
 };
 </script>

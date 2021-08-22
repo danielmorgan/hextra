@@ -17,7 +17,7 @@
       alignment-baseline="middle"
       font-size="16"
       :font-weight="[selected && 'bold']"
-      class="fill-current text-black group-hover:text-white"
+      class="fill-current text-black group-hover:text-white font-mono stabular-nums lining-nums slashed-zero"
       :class="[selected && 'text-yellow-600 group-hover:text-yellow-700']"
     >
       {{ q }},{{ r }}

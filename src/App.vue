@@ -7,20 +7,11 @@
     
     <UI class="absolute inset-0 z-10 pointer-events-none" @explore="showStory = true"/>
 
-    <transition
-      enter-active-class="transition duration-500"
-      leave-active-class="transition duration-500"
-      enter-class="opacity-0 scale-70"
-      enter-to-class="opacity-100 scale-100"
-      leave-class="opacity-0 scale-70"
-      leave-to-class="opacity-0 scale-70"
-    >
-      <Story
-        class="absolute inset-0 z-20"
-        v-if="showStory"
-        @close="showStory = false"
-      />
-    </transition>
+    <Story
+      class="absolute inset-0 z-20"
+      v-if="showStory"
+      @close="showStory = false"
+    />
   </div>
 </template>
 
