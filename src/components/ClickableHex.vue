@@ -1,10 +1,14 @@
 <template>
-  <g class="group cursor-pointer">
+  <g
+    class="group cursor-pointer"
+    @click="$emit('selected', { q, r })"
+  >
     <Hex
       :coords="coords"
-      stroke="black"
-      stroke-width="2"
+      :stroke="[selected ? 'orange' : 'black']"
+      :stroke-width="[selected ? 4 : 2]"
       class="fill-current text-white group-hover:text-purple-700"
+      :class="[selected && 'text-yellow-200 group-hover:text-yellow-300']"
     />
     <text
       :x="x"
@@ -12,33 +16,31 @@
       text-anchor="middle"
       alignment-baseline="middle"
       font-size="16"
-      class="fill-current text-black group-hover:text-white group-hover:opacity-0"
+      :font-weight="[selected && 'bold']"
+      class="fill-current text-black group-hover:text-white"
+      :class="[selected && 'text-yellow-600 group-hover:text-yellow-700']"
     >
       {{ q }},{{ r }}
-    </text>
-    <text
-      :x="x"
-      :y="y"
-      text-anchor="middle"
-      alignment-baseline="middle"
-      font-size="16"
-      class="fill-current text-black group-hover:text-white opacity-0 group-hover:opacity-100"
-    >
-      {{ x.toFixed(0) }},{{ y.toFixed(0) }}
     </text>
   </g>
 </template>
 
 <script>
-import { flat_hex_corners, axial_to_pixel } from '@/utils/hex.js';
+import { axial_to_pixel } from '@/utils/hex.js';
 import Hex from './Hex.vue';
 
 export default {
   components: { Hex },
+
   props: {
     coords: {
       type: Object,
       required: true,
+    },
+    selected: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
 

@@ -35,7 +35,7 @@ class Orientation {
 const orientation_flat = new Orientation(
   3/2, 0, Math.sqrt(3)/2, Math.sqrt(3),
   2/3, 0, -1/3, Math.sqrt(3)/3,
-  0.5
+  0
 );
 
 class Layout {
