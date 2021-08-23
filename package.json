@@ -24,6 +24,7 @@
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
+    "inkjs": "^2.0.0",
     "mini-css-extract-plugin": "^2.2.0",
     "postcss-loader": "^6.1.1",
     "vue": "^3.2.4",

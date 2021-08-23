@@ -5,7 +5,7 @@
       v-if="hasSelectedHex"
     >
       <div class="bg-black bg-opacity-50 text-white text-center rounded shadow-lg font-bold py-4 text-3xl">
-        The Plagued Man
+        Monsieur Fogg
       </div>
 
       <button
