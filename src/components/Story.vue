@@ -84,7 +84,6 @@ export default {
         this.choices = this.story.currentChoices;
       }
     },
-
     handleChoice(index) {
       this.story.ChooseChoiceIndex(index);
       this.runStory();

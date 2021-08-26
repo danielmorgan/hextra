@@ -22,8 +22,9 @@ export default {
 
   computed: {
     points() {
-      const { x, y } = axial_to_pixel(this.coords);
-      return flat_hex_corners({ x, y }, 20);
+      return flat_hex_corners(
+        axial_to_pixel(this.coords)
+      );
     }
   }
 };

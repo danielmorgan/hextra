@@ -1,22 +1,19 @@
 <template>
   <g>
-    <Hex
+    <polygon
       v-for="coords in map"
       :key="`bg|${coords.q},${coords.r}`"
-      :coords="coords"
       :fill="fillColor()"
       stroke="#bbb"
+      :points="points(coords)"
     />
   </g>
 </template>
 
 <script>
-import { Hex as Hexagon } from '@/utils/hex.js';
-import Hex from '@/components/Hex.vue'
+import { flat_hex_corners, axial_to_pixel, Hex } from '@/utils/hex.js';
 
 export default {
-  components: { Hex },
-
   data() {
     return {
       map: this.createMap(),
@@ -30,7 +27,7 @@ export default {
       const range = 15;
       for (let q = -range; q <= range; q++) {
         for (let r = -range; r <= range; r++) {
-          map.push(new Hexagon(q, r, -q-r));
+          map.push(new Hex(q, r, -q-r));
         }
       }
       return map;
@@ -46,7 +43,12 @@ export default {
         return '#e6e6f3';
       }
       return '#eeeef8';
-    }
+    },
+    points(coords) {
+      return flat_hex_corners(
+        axial_to_pixel(coords)
+      );
+    },
   },
 };
 </script>
