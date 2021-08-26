@@ -1,9 +1,17 @@
 export {
+  Location,
   Hex,
   flat_hex_corner,
   flat_hex_corners,
   axial_to_pixel,
   layout,
+}
+
+class Location {
+  constructor(hex, story) {
+    this.hex = hex;
+    this.story = story;
+  }
 }
 
 class Hex {

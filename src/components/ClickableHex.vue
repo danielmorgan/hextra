@@ -1,10 +1,10 @@
 <template>
   <g
     class="group cursor-pointer"
-    @click="$emit('selected', { q, r })"
+    @click="$emit('selected', hex)"
   >
     <Hex
-      :coords="coords"
+      :coords="{ q, r }"
       :stroke="[selected ? 'orange' : 'black']"
       :stroke-width="[selected ? 3 : 2]"
       class="fill-current text-white group-hover:text-purple-700"
@@ -33,7 +33,7 @@ export default {
   components: { Hex },
 
   props: {
-    coords: {
+    hex: {
       type: Object,
       required: true,
     },
@@ -45,10 +45,10 @@ export default {
   },
 
   data() {
-    const {x,y} = axial_to_pixel(this.coords);
+    const {x,y} = axial_to_pixel(this.hex);
     return {
-      q: this.coords.q,
-      r: this.coords.r,
+      q: this.hex.q,
+      r: this.hex.r,
       x,
       y,
     }

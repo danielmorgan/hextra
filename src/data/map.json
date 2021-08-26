@@ -1,9 +1,9 @@
 [
-  { "q": 0, "r": 0 },
-  { "q": 0, "r": -1 },
-  { "q": 0, "r": 1 },
-  { "q": -1, "r": 0 },
-  { "q": -1, "r": 1 },
-  { "q": 1, "r": 0 },
-  { "q": 1, "r": -1 }
+  { "q": 0, "r": 0, "story": "demozzz_ink" },
+  { "q": 0, "r": -1, "story": "demo2_ink" },
+  { "q": 0, "r": 1, "story": "de1mo_ink" },
+  { "q": -1, "r": 0, "story": "demo_ink" },
+  { "q": -1, "r": 1, "story": "de3mo_ink" },
+  { "q": 1, "r": 0, "story": "demoagw_ink" },
+  { "q": 1, "r": -1, "story": "de0mo_ink" }
 ]

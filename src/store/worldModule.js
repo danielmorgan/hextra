@@ -15,6 +15,9 @@ export default {
     unselectedMapHexes(state, getters, rootState, rootGetters) {
       return state.map.filter(hex => !rootGetters.coordsMatch(hex, state.selectedHex));
     },
+    selectedHexStoryFile(state) {
+      return `/${state.selectedHex?.story}.json`;
+    },
   },
 
   mutations: {
@@ -25,13 +28,4 @@ export default {
       state.selectedHex = null;
     },
   },
-
-  actions: {
-    deselectMapHex: {
-      root: true,
-      handler({ commit }) {
-        commit('deselectHex');
-      },
-    },
-  }
 };

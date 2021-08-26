@@ -5,7 +5,7 @@
       v-if="hasSelectedHex"
     >
       <div class="bg-black bg-opacity-50 text-white text-center rounded shadow-lg font-bold py-4 text-3xl">
-        Monsieur Fogg
+        {{ story }}
       </div>
 
       <button
@@ -32,6 +32,7 @@ export default {
     ...mapState({
       q: state => state.world.selectedHex?.q,
       r: state => state.world.selectedHex?.r,
+      story: state => state.world.selectedHex?.story,
       hasSelectedHex: state => !!state.world.selectedHex,
       selectedHex: state => state.world.selectedHex,
       playerCoords: state => state.player.coords,

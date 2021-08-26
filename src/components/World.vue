@@ -3,14 +3,14 @@
     <ClickableHex
       v-for="coords in unselectedMapHexes"
       :key="`world|${coords.q},${coords.r}`"
-      :coords="coords"
+      :hex="coords"
       @selected="handleSelectHex"
     />
     <!-- No z-index in SVG so a new element needs to be inserted after the other DOM elements to render on top -->
     <ClickableHex
       v-if="selectedHex"
       :key="`world|selected|${selectedHex.q},${selectedHex.r}`"
-      :coords="selectedHex"
+      :hex="selectedHex"
       :selected="true"
       @selected="handleSelectHex"
     />
