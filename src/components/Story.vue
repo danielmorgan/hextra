@@ -6,7 +6,7 @@
       </div>
       
       <div class="flex flex-col justify-between items-center" v-else>
-        <h1 class="text-3xl font-semibold leading-none text-white text-center">{{ title }}</h1>
+        <h1 class="text-3xl font-semibold leading-none text-white text-center">{{ storyName }}</h1>
 
         <div class="mt-8">
           <transition
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import { Story } from 'inkjs';
 
 export default {
@@ -79,6 +79,9 @@ export default {
   },
 
   computed: {
+    ...mapState({
+      storyName: state => state.world.selectedHex?.story,
+    }),
     ...mapGetters('world', [
       'selectedHexStoryFile'
     ]),
