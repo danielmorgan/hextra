@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapState, mapGetters, mapMutations } from 'vuex';
 import { Story } from 'inkjs';
 
 export default {
@@ -85,11 +85,21 @@ export default {
     ...mapGetters('world', [
       'selectedHexStoryFile'
     ]),
+    ...mapGetters('memory', {
+      globalVariables: 'all',
+    }),
   },
 
   methods: {
+    ...mapMutations('memory', ['updateGlobalVariables']),
     setupStory(ink) {
       this.story = new Story(ink);
+
+      // Use the save/load function not to load the entire state, but just the global variables.
+      const save = JSON.parse(this.story.state.ToJson());
+      save.variablesState = { ...this.globalVariables };
+      this.story.state.LoadJson(JSON.stringify(save));
+
       this.runStory();
     },
     runStory() {
@@ -104,6 +114,9 @@ export default {
       if (this.story.currentChoices.length > 0) {
         this.choices = this.story.currentChoices;
       }
+
+      const save = JSON.parse(this.story.state.ToJson());
+      this.updateGlobalVariables(save.variablesState);
     },
     handleChoice(index) {
       this.story.ChooseChoiceIndex(index);
