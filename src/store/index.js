@@ -9,10 +9,4 @@ export default createStore({
     player,
     world,
   },
-
-  getters: {
-    coordsMatch: () => (a, b) => {
-      return a?.q === b?.q && a?.r === b?.r;
-    },
-  },
 })

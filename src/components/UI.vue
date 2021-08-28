@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { coords_match } from '@/utils/hex';
 import { mapState, mapGetters, mapMutations } from 'vuex';
 
 export default {
@@ -37,9 +38,8 @@ export default {
       selectedHex: state => state.world.selectedHex,
       playerCoords: state => state.player.coords,
     }),
-    ...mapGetters(['coordsMatch']),
     selectedCurrentLocation() {
-      return this.coordsMatch(this.playerCoords, this.selectedHex);
+      return coords_match(this.playerCoords, this.selectedHex);
     },
   },
 

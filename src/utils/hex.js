@@ -4,6 +4,7 @@ export {
   flat_hex_corner,
   flat_hex_corners,
   axial_to_pixel,
+  coords_match,
   layout,
 }
 
@@ -82,4 +83,8 @@ function axial_to_pixel(coords) {
     x: x + layout.origin.x,
     y: y + layout.origin.y,
   };
+}
+
+function coords_match(a, b) {
+  return a?.q === b?.q && a?.r === b?.r;
 }

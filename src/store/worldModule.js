@@ -1,4 +1,5 @@
 import map from '@/data/map.json';
+import { coords_match } from '@/utils/hex';
 
 export default {
   namespaced: true,
@@ -9,11 +10,11 @@ export default {
   }),
 
   getters: {
-    isSelected: (state, getters, rootState, rootGetters) => (coords) => {
-      return rootGetters.coordsMatch(state.selectedHex, coords);
+    isSelected: (state) => (coords) => {
+      return coords_match(state.selectedHex, coords);
     },
-    unselectedMapHexes(state, getters, rootState, rootGetters) {
-      return state.map.filter(hex => !rootGetters.coordsMatch(hex, state.selectedHex));
+    unselectedMapHexes(state) {
+      return state.map.filter(hex => !coords_match(hex, state.selectedHex));
     },
     selectedHexStoryFile(state) {
       return `/${state.selectedHex?.story}.json`;

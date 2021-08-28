@@ -22,6 +22,7 @@
 import { mapState, mapGetters, mapMutations } from 'vuex';
 import ClickableHex from '@/components/ClickableHex.vue';
 import Pin from '@/components/Pin.vue';
+import { coords_match } from '@/utils/hex';
 
 export default {
   components: { ClickableHex, Pin },
@@ -36,7 +37,7 @@ export default {
       'deselectHex',
     ]),
     handleSelectHex(coords) {
-      if (this.coordsMatch(this.selectedHex, coords)) {
+      if (coords_match(this.selectedHex, coords)) {
         this.deselectHex();
       } else {
         this.selectHex(coords);
@@ -54,7 +55,6 @@ export default {
       'isSelected',
       'unselectedMapHexes',
     ]),
-    ...mapGetters(['coordsMatch']),
   }
 };
 </script>
