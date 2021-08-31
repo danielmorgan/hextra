@@ -1,6 +1,4 @@
 [
-  { "q": 0, "r": 1, "story": "Blacksmith" },
-  { "q": 0, "r": 0, "story": "Village" },
-  { "q": -1, "r": 0, "story": "TheIntercept" },
-  { "q": 1, "r": -1, "story": "MonsieurFogg" }
+  { "q": 0, "r": 0, "story": "PlaguedMan" },
+  { "q": 0, "r": -1, "story": "NecromancersTown" }
 ]
