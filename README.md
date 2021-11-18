@@ -1,6 +1,6 @@
 # hextra
 
-Empty project.
+Prototype for a collaborative fiction game, loading Ink stories and persisting the decisions made by players across multiple story locations on a hex grid.
 
 ## Building and running on localhost
 
